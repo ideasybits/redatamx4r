@@ -2,7 +2,7 @@ Package: redatamx
 Title: R Interface to 'Redatam' Library
 Version: 1.0.0
 Date: 2024-11-01
-Authors@R:c(
+Authors@R: c(
     person(
       given = "Jaime", 
       family = "Salvador", 
@@ -34,3 +34,4 @@ SystemRequirements: 'Redatam' runtime engine (see https://redatam.org),
   <https://redatam-core.s3.us-west-2.amazonaws.com> during the build step.
   Currently supported platforms are Windows, Linux and macOS.
 Copyright: See COPYRIGHTS for details. 
+URL: https://ideasybits.github.io/redatamx4r/
