@@ -1,0 +1,71 @@
+name: Build macos x86 package for R
+
+on: workflow_dispatch
+#  push:
+#    branches: [ "main" ]
+#  pull_request:
+#    branches: [ "main" ]
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    env:
+      LOWERCASE_OS: 'macos'
+      PKG_VERSION: 'redatamx_1.0.0'
+
+    runs-on: macos-13
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Get Current Time
+        uses: josStorer/get-current-time@v2.1.2
+        id: current-date
+        with:
+          format: YYYYMMDD
+
+      - name: Set up R ${{ matrix.r-version }}
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: '4.4.1'
+
+      - name: Show R info
+        run: |
+          Rscript -e R.version
+
+      - name: Detect R version
+        run: |
+          runtime=`"Rscript" -e 'cat(R.version$os)'` &&
+          echo "  found: '$runtime'"
+
+      - name: Install packages
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::cpp11
+            any::devtools
+
+      - name: Build package
+        run: |
+          R CMD build .
+
+      - name: Install package
+        run: |
+          R CMD INSTALL --build ${{env.PKG_VERSION}}.tar.gz
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Upload release to S3
+        env:
+          BASE_NAME: '${{env.LOWERCASE_OS}}/${{env.PKG_VERSION}}'
+          CURRENT_DATE: "${{steps.current-date.outputs.formattedTime}}"
+        run: |
+          aws s3 cp '${{env.PKG_VERSION}}.tgz' 's3://redatam-core/R/${{env.BASE_NAME}}.tgz' &&
+          aws s3 cp '${{env.PKG_VERSION}}.tgz' 's3://redatam-core/R/${{env.BASE_NAME}}-${{env.CURRENT_DATE}}.tgz'
+

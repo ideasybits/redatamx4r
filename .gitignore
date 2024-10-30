@@ -1,0 +1,10 @@
+# Project exclude paths
+*.o
+/.Rproj.user/
+.RData
+.Rproj.user
+
+/redengine
+/inst/redengine
+.Rhistory
+.Rhistory

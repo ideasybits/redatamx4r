@@ -1,0 +1,10 @@
+^redatam\.Rproj$
+^\.Rproj\.user$
+^\.Rhistory$
+^\.RData$
+^\.Ruserdata$
+^\.github$
+^redengine/$
+^LICENSE\.md$
+^cran-comments\.md$
+
