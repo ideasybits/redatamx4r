@@ -2,7 +2,7 @@ pandoc: 3.1.11
 pkgdown: 2.1.1
 pkgdown_sha: ~
 articles: {}
-last_built: 2024-10-30T15:27Z
+last_built: 2024-10-30T15:44Z
 urls:
   reference: https://ideasybits.github.io/redatamx4r/reference
   article: https://ideasybits.github.io/redatamx4r/articles
