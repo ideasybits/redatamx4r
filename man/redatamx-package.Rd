@@ -8,6 +8,15 @@
 \description{
 Provides an API to work with 'Redatam' (see \url{https://redatam.org}) databases in both formats: 'RXDB' (new format) and 'DICX' (old format) and running 'Redatam' programs written in 'SPC' language. It's a wrapper around 'Redatam' core and provides functions to open/close a database (redatam_open()/redatam_close()), list entities and variables from the database (redatam_entities(), redatam_variables()) and execute a 'SPC' program and gets the results as data frames (redatam_query(), redatam_run()).
 }
+\seealso{
+Useful links:
+\itemize{
+  \item \url{https://github.com/ideasybits/redatamx4r}
+  \item \url{https://ideasybits.github.io/redatamx4r}
+  \item Report bugs at \url{https://github.com/ideasybits/redatamx4r/issues}
+}
+
+}
 \author{
 \strong{Maintainer}: Jaime Salvador \email{jaime.salvador@ideasybits.com} (\href{https://orcid.org/0000-0002-3564-8929}{ORCID})
 

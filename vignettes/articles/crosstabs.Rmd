@@ -1,0 +1,53 @@
+---
+title: "Crosstabs"
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+``` r
+library(redatamx)
+```
+
+After opening a dictionary, you can execute a SPC command using `redatam_query`
+
+``` r
+# Open NMIR database
+dic<-redatam_open()
+
+# Run a frequency 'freq person.ecivil'
+t<-redatam_query(dic, "freq person.ecivil")
+colnames(t)<-c("code","label","value")
+print(t)
+```
+
+The output of the last command is:
+
+```
+##   code       label value
+## 1    1      casado 16789
+## 2    2 conviviente  1346
+## 3    3     soltero 13676
+## 4    4      viúdo   1781
+## 5    5    separado   610
+## 6    6     anulado    22
+```
+
+As you can see, there are 3 columns in the generated dataframe:
+
+* SEXO1_value (code)
+* SEXO1_label (label)
+* value (value)
+
+We can also generate plot graphs, the `RColorBrewer` package is used:
+
+```r
+library(RColorBrewer) # for colors
+
+coul <- brewer.pal(5, "Set2")
+barplot(height=t$value, names=t$label, col=coul)
+```

@@ -1,12 +1,15 @@
-# Redatam (R package)
+# redatamx
 
 ## About
 
-The 'redatamx' package is a R-package to work with REDATAM databases in RXDB (new) or DICX (old) format.
+**redatamx** is a package to work with REDATAM databases in RXDB (new) or DICX (old) format.
+
+## Installation
 
 To install the R package, run the following command:
 
-``` r         
+``` r
+# Install released version from CRAN
 install.packages("redatamx")
 ```
 
@@ -17,9 +20,6 @@ The Redatam package enables the use of REDATAM databases inside R. It is posible
 For example:
 
 ``` r
-#Firs, install the package
-#install.packages("redatamx")
-
 library(redatamx)
 
 # open a dictionary
