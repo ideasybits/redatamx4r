@@ -32,12 +32,19 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
+<li><a class="dropdown-item" href="articles/crosstabs.html">Crosstabs</a></li>
+  </ul>
+</li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/ideasybits/redatamx4r/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -46,15 +53,20 @@
 </nav><div class="container template-home">
 <div class="row">
   <main id="main" class="col-md-9"><div class="section level1">
-<div class="page-header"><h1 id="redatam-r-package">Redatam (R package)<a class="anchor" aria-label="anchor" href="#redatam-r-package"></a>
+<div class="page-header"><h1 id="redatamx">redatamx<a class="anchor" aria-label="anchor" href="#redatamx"></a>
 </h1></div>
 <div class="section level2">
 <h2 id="about">About<a class="anchor" aria-label="anchor" href="#about"></a>
 </h2>
-<p>The ‘redatamx’ package is a R-package to work with REDATAM databases in RXDB (new) or DICX (old) format.</p>
+<p><strong>redatamx</strong> is a package to work with REDATAM databases in RXDB (new) or DICX (old) format.</p>
+</div>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>To install the R package, run the following command:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"redatamx"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># Install released version from CRAN</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"redatamx"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
@@ -62,10 +74,7 @@
 <p>The Redatam package enables the use of REDATAM databases inside R. It is posible to open a REDATAM dictionary (<strong>dicx</strong> format or the new <strong>rxdb</strong> format) and run Redatam programs in written in SPC language.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co">#Firs, install the package</span></span>
-<span><span class="co">#install.packages("redatamx")</span></span>
-<span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ideasybits.github.io/redatamx4r/">redatamx</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ideasybits/redatamx4r" class="external-link">redatamx</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># open a dictionary</span></span>
 <span><span class="va">dic</span><span class="op">&lt;-</span><span class="fu"><a href="reference/redatam_open.html">redatam_open</a></span><span class="op">(</span><span class="st">"path/to/nmir.rxdb"</span><span class="op">)</span></span>
@@ -99,6 +108,8 @@
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
 <li><a href="https://cloud.r-project.org/package=redatamx" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/ideasybits/redatamx4r/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/ideasybits/redatamx4r/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
