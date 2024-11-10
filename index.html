@@ -6,23 +6,30 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>R Interface to Redatam Library • redatamx</title>
-<script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="lightswitch.js"></script><script src="deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="R Interface to Redatam Library">
 <meta name="description" content="Provides an API to work with Redatam (see &lt;https://redatam.org&gt;) databases in both formats: RXDB (new format) and DICX (old format) and running Redatam programs written in SPC language. Its a wrapper around Redatam core and provides functions to open/close a database (redatam_open()/redatam_close()), list entities and variables from the database (redatam_entities(), redatam_variables()) and execute a SPC' program and gets the results as data frames (redatam_query(), redatam_run()).">
 <meta property="og:description" content="Provides an API to work with Redatam (see &lt;https://redatam.org&gt;) databases in both formats: RXDB (new format) and DICX (old format) and running Redatam programs written in SPC language. Its a wrapper around Redatam core and provides functions to open/close a database (redatam_open()/redatam_close()), list entities and variables from the database (redatam_entities(), redatam_variables()) and execute a SPC' program and gets the results as data frames (redatam_query(), redatam_run()).">
+<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=%7BYOUR%20TRACKING%20ID%7D"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JZGC3ESGYP');
+</script>
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="index.html">redatamx</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,6 +52,14 @@
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/ideasybits/redatamx4r/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch">
+<li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun"></span> Light</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon"></span> Dark</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
+  </ul>
+</li>
       </ul>
 </div>
 
@@ -71,15 +86,15 @@
 <div class="section level2">
 <h2 id="usage">Usage<a class="anchor" aria-label="anchor" href="#usage"></a>
 </h2>
-<p>The Redatam package enables the use of REDATAM databases inside R. It is posible to open a REDATAM dictionary (<strong>dicx</strong> format or the new <strong>rxdb</strong> format) and run Redatam programs in written in SPC language.</p>
+<p>The Redatam package enables the use of REDATAM databases inside R. It is possible to open a REDATAM dictionary (<strong>dicx</strong> format or the new <strong>rxdb</strong> format) and run Redatam programs written in SPC language.</p>
 <p>For example:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ideasybits/redatamx4r" class="external-link">redatamx</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ideasybits.github.io/redatamx4r">redatamx</a></span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># open a dictionary</span></span>
 <span><span class="va">dic</span><span class="op">&lt;-</span><span class="fu"><a href="reference/redatam_open.html">redatam_open</a></span><span class="op">(</span><span class="st">"path/to/nmir.rxdb"</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># run a frequency usig the new syntax</span></span>
+<span><span class="co"># run a frequency using the new syntax</span></span>
 <span><span class="va">tbl1</span><span class="op">&lt;-</span><span class="fu"><a href="reference/redatam_query.html">redatam_query</a></span><span class="op">(</span><span class="va">dic</span>, <span class="st">"freq person.sexo"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co">#-- you can use the old syntax too</span></span>
@@ -92,7 +107,7 @@
 <blockquote>
 <p>You need to replace <code>path/to/nmir.rxdb</code> to point to your NMIR dictionary (Redatam database).</p>
 </blockquote>
-<p>After running the above program, you will find a new dataframe <strong>tbl1</strong> that corresponds to the output of the REDATAM program. You can use R commands to operate with the new dataframe, the outputs of the above commands are:</p>
+<p>After running the above program, you will find a new data frame <em>tbl1</em> that corresponds to the output of the REDATAM program. You can use R commands to operate with the new data frame, the output of the above program is:</p>
 <pre><code><span><span class="co">##  SEXO1_value SEXO1_label  value</span></span>
 <span><span class="co">##            1      Hombre  26834</span></span>
 <span><span class="co">##            2       Mujer  25355</span></span></code></pre>

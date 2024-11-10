@@ -6,21 +6,28 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Crosstabs • redatamx</title>
-<script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<script src="../lightswitch.js"></script><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Crosstabs">
+<!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=%7BYOUR%20TRACKING%20ID%7D"></script><script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JZGC3ESGYP');
+</script>
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
 
 
-    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
+    <nav class="navbar navbar-expand-lg fixed-top " aria-label="Site navigation"><div class="container">
 
     <a class="navbar-brand me-2" href="../index.html">redatamx</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -43,6 +50,14 @@
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
 </form></li>
 <li class="nav-item"><a class="external-link nav-link" href="https://github.com/ideasybits/redatamx4r/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
+<li class="nav-item dropdown">
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-lightswitch" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Light switch"><span class="fa fa-sun"></span></button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-lightswitch">
+<li><button class="dropdown-item" data-bs-theme-value="light"><span class="fa fa-sun"></span> Light</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="dark"><span class="fa fa-moon"></span> Dark</button></li>
+    <li><button class="dropdown-item" data-bs-theme-value="auto"><span class="fa fa-adjust"></span> Auto</button></li>
+  </ul>
+</li>
       </ul>
 </div>
 
@@ -66,12 +81,12 @@
     
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/ideasybits/redatamx4r" class="external-link">redatamx</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ideasybits.github.io/redatamx4r">redatamx</a></span><span class="op">)</span></span></code></pre></div>
 <p>After opening a dictionary, you can execute a SPC command using
 <code>redatam_query</code></p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Open NMIR database</span></span>
-<span><span class="va">dic</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/redatam_open.html">redatam_open</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">dic</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/redatam_open.html">redatam_open</a></span><span class="op">(</span><span class="st">'path/to/nmiresp.rxdb'</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># Run a frequency 'freq person.ecivil'</span></span>
 <span><span class="va">t</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/redatam_query.html">redatam_query</a></span><span class="op">(</span><span class="va">dic</span>, <span class="st">"freq person.ecivil"</span><span class="op">)</span></span>
@@ -98,7 +113,196 @@ package is used:</p>
 <span></span>
 <span><span class="va">coul</span> <span class="op">&lt;-</span> <span class="fu">brewer.pal</span><span class="op">(</span><span class="fl">5</span>, <span class="st">"Set2"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/barplot.html" class="external-link">barplot</a></span><span class="op">(</span>height<span class="op">=</span><span class="va">t</span><span class="op">$</span><span class="va">value</span>, names<span class="op">=</span><span class="va">t</span><span class="op">$</span><span class="va">label</span>, col<span class="op">=</span><span class="va">coul</span><span class="op">)</span></span></code></pre></div>
-  </main>
+<p><img src="freq-graph.png"><!-- --></p>
+<p>If you need to run a 2-dimensional table, you can execute a SPC
+command using <code>redatam.query</code>. The next exmaple, run a
+crosstab <code>person.ecivil by person.sexo</code>, next rename the
+columns- of the generated dataframe, and finally print the
+dataframe:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Run a crosstab 'freq person.ecivil by person.sexo'</span></span>
+<span><span class="va">t2</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/redatam_query.html">redatam_query</a></span><span class="op">(</span><span class="va">dic</span>, <span class="st">"freq person.ecivil by person.sexo"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># rename the columns</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">t2</span><span class="op">)</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"evalue"</span>,<span class="st">"elabel"</span>,<span class="st">"svalue"</span>,<span class="st">"slabel"</span>,<span class="st">"value"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># print the dataframe</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">t2</span><span class="op">)</span></span></code></pre></div>
+<p>The output of the above example is:</p>
+<pre><code><span><span class="co">##    evalue      elabel svalue slabel value</span></span>
+<span><span class="co">## 1       1      casado      1 Hombre  8386</span></span>
+<span><span class="co">## 2       1      casado      2  Mujer  8403</span></span>
+<span><span class="co">## 3       2 conviviente      1 Hombre   637</span></span>
+<span><span class="co">## 4       2 conviviente      2  Mujer   709</span></span>
+<span><span class="co">## 5       3     soltero      1 Hombre  7597</span></span>
+<span><span class="co">## 6       3     soltero      2  Mujer  6079</span></span>
+<span><span class="co">## 7       4       viúdo      1 Hombre   506</span></span>
+<span><span class="co">## 8       4       viúdo      2  Mujer  1275</span></span>
+<span><span class="co">## 9       5    separado      1 Hombre   249</span></span>
+<span><span class="co">## 10      5    separado      2  Mujer   361</span></span>
+<span><span class="co">## 11      6     anulado      1 Hombre     5</span></span>
+<span><span class="co">## 12</span></span></code></pre>
+<p>Finally, if you need to make a crosstable, you can use R built-in
+functions:</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">t2_cross</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame.matrix</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/stats/xtabs.html" class="external-link">xtabs</a></span><span class="op">(</span><span class="va">t2</span><span class="op">$</span><span class="va">value</span><span class="op">~</span><span class="va">t2</span><span class="op">$</span><span class="va">elabel</span><span class="op">+</span><span class="va">t2</span><span class="op">$</span><span class="va">slabel</span><span class="op">)</span> <span class="op">)</span></span>
+<span></span>
+<span><span class="co"># calculate totals</span></span>
+<span><span class="va">t2_cross</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">t2_cross</span>, Total<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowSums</a></span><span class="op">(</span><span class="va">t2_cross</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">t2_cross</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">t2_cross</span>, Total<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">colSums</a></span><span class="op">(</span><span class="va">t2_cross</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># print the results</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">t2_cross</span><span class="op">)</span></span></code></pre></div>
+<p>The output of the last command is:</p>
+<pre><code><span><span class="co">##             Hombre Mujer Total</span></span>
+<span><span class="co">## anulado          5    17    22</span></span>
+<span><span class="co">## casado        8386  8403 16789</span></span>
+<span><span class="co">## conviviente    637   709  1346</span></span>
+<span><span class="co">## separado       249   361   610</span></span>
+<span><span class="co">## soltero       7597  6079 13676</span></span>
+<span><span class="co">## viúdo          506  1275  1781</span></span>
+<span><span class="co">## Total        17380 16844 34224</span></span></code></pre>
+<p>In the next block of code, you can find the whole program:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># load the Redatam package</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">redatam</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># open dictionary</span></span>
+<span><span class="va">dic</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/redatam_open.html">redatam_open</a></span><span class="op">(</span><span class="st">"path/to/nmiresp.rxdb"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Run a crosstab 'freq person.ecivil by person.sexo'</span></span>
+<span><span class="va">t2</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/redatam_query.html">redatam_query</a></span><span class="op">(</span><span class="va">dic</span>, <span class="st">"freq person.ecivil by person.sexo"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># rename the columns</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">t2</span><span class="op">)</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"evalue"</span>,<span class="st">"elabel"</span>,<span class="st">"svalue"</span>,<span class="st">"slabel"</span>,<span class="st">"value"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># make a cross-table</span></span>
+<span><span class="va">t2_cross</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/as.data.frame.html" class="external-link">as.data.frame.matrix</a></span><span class="op">(</span> <span class="fu"><a href="https://rdrr.io/r/stats/xtabs.html" class="external-link">xtabs</a></span><span class="op">(</span><span class="va">t2</span><span class="op">$</span><span class="va">value</span><span class="op">~</span><span class="va">t2</span><span class="op">$</span><span class="va">elabel</span><span class="op">+</span><span class="va">t2</span><span class="op">$</span><span class="va">slabel</span><span class="op">)</span> <span class="op">)</span></span>
+<span></span>
+<span><span class="co"># calculate totals</span></span>
+<span><span class="va">t2_cross</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">cbind</a></span><span class="op">(</span><span class="va">t2_cross</span>, Total<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">rowSums</a></span><span class="op">(</span><span class="va">t2_cross</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">t2_cross</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/cbind.html" class="external-link">rbind</a></span><span class="op">(</span><span class="va">t2_cross</span>, Total<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/colSums.html" class="external-link">colSums</a></span><span class="op">(</span><span class="va">t2_cross</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># print the results</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">t2_cross</span><span class="op">)</span></span></code></pre></div>
+<div class="section level2">
+<h2 id="generate-a-pivot-table">Generate a pivot-table<a class="anchor" aria-label="anchor" href="#generate-a-pivot-table"></a>
+</h2>
+<p>We can use the <code>pivottabler</code> library for building a
+crosstab. In the next exmaple, we generate a 3-dimensional Redatam
+crosstab <code>freq person.sexo by person.ecivil by person.alfab</code>
+and then generate a pivot-table:</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># Run a crosstab 'req person.sexo by person.ecivil by person.alfab'</span></span>
+<span><span class="va">t3</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/redatam_query.html">redatam_query</a></span><span class="op">(</span><span class="va">dic</span>, <span class="st">"freq person.sexo by person.ecivil by person.alfab"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># rename the columns</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">t3</span><span class="op">)</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"svalue"</span>, <span class="st">"slabel"</span>, <span class="st">"evalue"</span>, <span class="st">"elabel"</span>, </span>
+<span>    <span class="st">"avalue"</span>, <span class="st">"alabel"</span>, <span class="st">"value"</span> <span class="op">)</span></span>
+<span>    </span>
+<span><span class="co"># print the results </span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">t3</span><span class="op">)</span></span></code></pre></div>
+<p>The output of the last command is:</p>
+<pre><code><span><span class="co">##    svalue slabel evalue      elabel avalue     alabel value</span></span>
+<span><span class="co">## 1       1 Hombre      1      casado      1   Alfabeto  1540</span></span>
+<span><span class="co">## 2       1 Hombre      1      casado      2 Analfabeto  1452</span></span>
+<span><span class="co">## 3       1 Hombre      2 conviviente      1   Alfabeto   128</span></span>
+<span><span class="co">## 4       1 Hombre      2 conviviente      2 Analfabeto   132</span></span>
+<span><span class="co">## 5       1 Hombre      3     soltero      1   Alfabeto   650</span></span>
+<span><span class="co">## 6       1 Hombre      3     soltero      2 Analfabeto   949</span></span>
+<span><span class="co">## 7       1 Hombre      4       viúdo      1   Alfabeto   140</span></span>
+<span><span class="co">## 8       1 Hombre      4       viúdo      2 Analfabeto   195</span></span>
+<span><span class="co">## 9       1 Hombre      5    separado      1   Alfabeto    61</span></span>
+<span><span class="co">## 10      1 Hombre      5    separado      2 Analfabeto    46</span></span>
+<span><span class="co">## 11      1 Hombre      6     anulado      2 Analfabeto     1</span></span>
+<span><span class="co">## 12      2  Mujer      1      casado      1   Alfabeto  1384</span></span>
+<span><span class="co">## 13      2  Mujer      1      casado      2 Analfabeto  1307</span></span>
+<span><span class="co">## 14      2  Mujer      2 conviviente      1   Alfabeto   137</span></span>
+<span><span class="co">## 15      2  Mujer      2 conviviente      2 Analfabeto   161</span></span>
+<span><span class="co">## 16      2  Mujer      3     soltero      1   Alfabeto   411</span></span>
+<span><span class="co">## 17      2  Mujer      3     soltero      2 Analfabeto   548</span></span>
+<span><span class="co">## 18      2  Mujer      4       viúdo      1   Alfabeto   276</span></span>
+<span><span class="co">## 19      2  Mujer      4       viúdo      2 Analfabeto   474</span></span>
+<span><span class="co">## 20      2  Mujer      5    separado      1   Alfabeto    57</span></span>
+<span><span class="co">## 21      2  Mujer      5    separado      2 Analfabeto    68</span></span>
+<span><span class="co">## 22      2  Mujer      6     anulado      1   Alfabeto     3</span></span></code></pre>
+<p>Next, you can generate a pivot-table using the
+<code>pivottabler</code> package:</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://www.pivottabler.org.uk/" class="external-link">pivottabler</a></span><span class="op">)</span> <span class="co"># for pivot tables</span></span>
+<span></span>
+<span><span class="co"># generate the pivot table</span></span>
+<span><span class="va">pt</span> <span class="op">=</span> <span class="fu">qpvt</span><span class="op">(</span> <span class="va">t3</span>, rows <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"slabel"</span>,<span class="st">"elabel"</span><span class="op">)</span>, columns <span class="op">=</span> <span class="st">"alabel"</span>, <span class="st">"sum(value)"</span> <span class="op">)</span></span>
+<span></span>
+<span><span class="co"># print the pivot table</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/print.html" class="external-link">print</a></span><span class="op">(</span><span class="va">pt</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># If you want to render the pivot table as a html-widgets, use</span></span>
+<span><span class="co"># qhpvt( t3, rows = c("slabel","elabel"), columns = "alabel", "sum(value)" )</span></span></code></pre></div>
+<p><em>If you want to render the pivot table, please uncomment the last
+line of code</em></p>
+<p>The output of the last command is a pivot table:</p>
+<pre><code><span><span class="co">##                      Alfabeto  Analfabeto  Total  </span></span>
+<span><span class="co">## Hombre  anulado                         1      1  </span></span>
+<span><span class="co">##         casado           1540        1452   2992  </span></span>
+<span><span class="co">##         conviviente       128         132    260  </span></span>
+<span><span class="co">##         separado           61          46    107  </span></span>
+<span><span class="co">##         soltero           650         949   1599  </span></span>
+<span><span class="co">##         viúdo            140         195    335  </span></span>
+<span><span class="co">##         Total            2519        2775   5294  </span></span>
+<span><span class="co">## Mujer   anulado             3                  3  </span></span>
+<span><span class="co">##         casado           1384        1307   2691  </span></span>
+<span><span class="co">##         conviviente       137         161    298  </span></span>
+<span><span class="co">##         separado           57          68    125  </span></span>
+<span><span class="co">##         soltero           411         548    959  </span></span>
+<span><span class="co">##         viúdo             276         474    750  </span></span>
+<span><span class="co">##         Total            2268        2558   4826  </span></span>
+<span><span class="co">## Total                    4787        5333  10120</span></span></code></pre>
+</div>
+<div class="section level2">
+<h2 id="export-to-excel-file">Export to excel file<a class="anchor" aria-label="anchor" href="#export-to-excel-file"></a>
+</h2>
+<p>If you wnat to export to an EXCEL file, you can use the
+<code>openxlsx</code> package:</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ycphs.github.io/openxlsx/index.html" class="external-link">openxlsx</a></span><span class="op">)</span> <span class="co"># for writing excel files</span></span>
+<span></span>
+<span><span class="va">wb</span> <span class="op">&lt;-</span> <span class="fu">createWorkbook</span><span class="op">(</span>creator <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"USERNAME"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">addWorksheet</span><span class="op">(</span><span class="va">wb</span>, <span class="st">"Data"</span><span class="op">)</span></span>
+<span><span class="va">pt</span><span class="op">$</span><span class="fu">writeToExcelWorksheet</span><span class="op">(</span>wb<span class="op">=</span><span class="va">wb</span>, wsName<span class="op">=</span><span class="st">"Data"</span>,</span>
+<span>                         topRowNumber<span class="op">=</span><span class="fl">1</span>, leftMostColumnNumber<span class="op">=</span><span class="fl">1</span>, </span>
+<span>                         applyStyles<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu">saveWorkbook</span><span class="op">(</span><span class="va">wb</span>, file<span class="op">=</span><span class="st">"C:/BASES/test.xlsx"</span>, overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<p>In the next block of code, you can find the whole program that
+generates and export a pivot table:</p>
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">redatam</span><span class="op">)</span> <span class="co"># Redatam package</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://www.pivottabler.org.uk/" class="external-link">pivottabler</a></span><span class="op">)</span> <span class="co"># for pivot tables</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ycphs.github.io/openxlsx/index.html" class="external-link">openxlsx</a></span><span class="op">)</span> <span class="co"># for writing excel files</span></span>
+<span></span>
+<span><span class="co"># open dictionary</span></span>
+<span><span class="va">dic</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/redatam_open.html">redatam_open</a></span><span class="op">(</span><span class="st">"path/to/nmiresp.rxdb"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Run a crosstab 'req person.sexo by person.ecivil by person.alfab'</span></span>
+<span><span class="va">t3</span><span class="op">&lt;-</span><span class="fu"><a href="../reference/redatam_query.html">redatam_query</a></span><span class="op">(</span><span class="va">dic</span>, <span class="st">"freq person.sexo by person.ecivil by person.alfab"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># rename the columns</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">t3</span><span class="op">)</span><span class="op">&lt;-</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"svalue"</span>, <span class="st">"slabel"</span>, <span class="st">"evalue"</span>, <span class="st">"elabel"</span>, </span>
+<span>    <span class="st">"avalue"</span>, <span class="st">"alabel"</span>, <span class="st">"value"</span> <span class="op">)</span></span>
+<span>    </span>
+<span><span class="co"># generate the pivot table</span></span>
+<span><span class="va">pt</span> <span class="op">=</span> <span class="fu">qpvt</span><span class="op">(</span> <span class="va">t3</span>, rows <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"slabel"</span>,<span class="st">"elabel"</span><span class="op">)</span>, columns <span class="op">=</span> <span class="st">"alabel"</span>, <span class="st">"sum(value)"</span> <span class="op">)</span></span>
+<span></span>
+<span><span class="co"># export to excel</span></span>
+<span><span class="va">wb</span> <span class="op">&lt;-</span> <span class="fu">createWorkbook</span><span class="op">(</span>creator <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/Sys.getenv.html" class="external-link">Sys.getenv</a></span><span class="op">(</span><span class="st">"USERNAME"</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="fu">addWorksheet</span><span class="op">(</span><span class="va">wb</span>, <span class="st">"Data"</span><span class="op">)</span></span>
+<span><span class="va">pt</span><span class="op">$</span><span class="fu">writeToExcelWorksheet</span><span class="op">(</span>wb<span class="op">=</span><span class="va">wb</span>, wsName<span class="op">=</span><span class="st">"Data"</span>,</span>
+<span>                         topRowNumber<span class="op">=</span><span class="fl">1</span>, leftMostColumnNumber<span class="op">=</span><span class="fl">1</span>, </span>
+<span>                         applyStyles<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
+<span><span class="fu">saveWorkbook</span><span class="op">(</span><span class="va">wb</span>, file<span class="op">=</span><span class="st">"C:/BASES/test.xlsx"</span>, overwrite <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+</div>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
