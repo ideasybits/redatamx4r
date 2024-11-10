@@ -30,12 +30,12 @@
 #' @export
 #' @examples
 #' \dontrun{
-#' dic<-redatam_open("c:/nmir/nmiresp.rxdb")
+#' dic<-redatam_open("path/to/rxdb")
 #' df<-redatam_query(dic,"tbl1<-freq person.sexo")
 #' # Accessing the tbl1 object from environment
-#' redatam::outputs$tbl1
+#' redatams::outputs$tbl1
 #' # Accessing the output from Global Environment
-#' print(tbl1)
+#' print(df)
 #' }
 #'
 "outputs"

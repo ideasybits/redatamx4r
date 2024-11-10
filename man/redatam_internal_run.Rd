@@ -19,10 +19,11 @@ Execute a Redatam command: TABLE or AREALIST.
 }
 \examples{
 \dontrun{
-dic<-redatam.open("rxdb")
-df<-redatam.internal_run(dic,"/path/to/nmir_test.spc")
+dic<-redatam.open("path/to/rxdb")
+df<-redatam.internal_run(dic,"/path/to/program.spc")
 }
 }
 \author{
 Jaime Salvador
 }
+\keyword{internal}

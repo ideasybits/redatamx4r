@@ -26,3 +26,4 @@ df<-redatam_internal_query(dic,"freq person.sexo")
 \author{
 Jaime Salvador
 }
+\keyword{internal}

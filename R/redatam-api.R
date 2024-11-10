@@ -61,7 +61,8 @@ redatam_save <- function(dic, name = "") {
 #' @examples
 #' \dontrun{
 #' dic<-redatam_open("path/to/rxdb")
-#' # run some queries using 'query' or 'run'
+#' # run some queries using 'redatam_query' or 'redatam_run'
+#' # close de dictionary
 #' redatam_close(dic);
 #' }
 redatam_close <- function(dic) {
@@ -118,7 +119,7 @@ redatam_version <- function() {
 #' @param dic Dictionary identifier
 #' @param spc Program text in SPC format
 #' @return Raw dataset with al values: tot, na, mv, values.
-#' @export
+#' @keywords internal
 #' @examples
 #' \dontrun{
 #' dic<-redatam_open("path/to/rxdb")
@@ -134,11 +135,11 @@ redatam_internal_query <- function(dic, spc) {
 #' @param dic Dictionary identifier
 #' @param file_name Program file name
 #' @return Raw dataset with all values: tot, na, mv, values.
-#' @export
+#' @keywords internal
 #' @examples
 #' \dontrun{
-#' dic<-redatam.open("rxdb")
-#' df<-redatam.internal_run(dic,"/path/to/nmir_test.spc")
+#' dic<-redatam.open("path/to/rxdb")
+#' df<-redatam.internal_run(dic,"/path/to/program.spc")
 #' }
 redatam_internal_run <- function(dic, file_name) {
   .Call(`_redatamx_redatam_internal_run`, dic, file_name)
@@ -150,7 +151,7 @@ redatam_internal_run <- function(dic, file_name) {
 #' This function is automatically called when the package is loaded.
 #' @param pachageDir Relative path to Redatm runtime (dll, so or dynlib)
 #' @return {No return value.}
-#' @export
+#' @keywords internal
 #' @examples
 #' \dontrun{
 #' redatam_init_("/engine");
@@ -164,7 +165,7 @@ redatam_init_ <- function(pachageDir) {
 #' @description Destroy the Redatam engine.
 #' This function is automatically called when the package is unloaded.
 #' @return {No return value.}
-#' @export
+#' @keywords internal
 #' @examples
 #' \dontrun{
 #' redatam_destroy_();

@@ -15,7 +15,7 @@ install.packages("redatamx")
 
 ## Usage
 
-The Redatam package enables the use of REDATAM databases inside R. It is posible to open a REDATAM dictionary (**dicx** format or the new **rxdb** format) and run Redatam programs in written in SPC language.
+The Redatam package enables the use of REDATAM databases inside R. It is possible to open a REDATAM dictionary (**dicx** format or the new **rxdb** format) and run Redatam programs written in SPC language.
 
 For example:
 
@@ -25,7 +25,7 @@ library(redatamx)
 # open a dictionary
 dic<-redatam_open("path/to/nmir.rxdb")
 
-# run a frequency usig the new syntax
+# run a frequency using the new syntax
 tbl1<-redatam_query(dic, "freq person.sexo")
 
 #-- you can use the old syntax too
@@ -39,7 +39,7 @@ redatam_close(dic)
 
 > You need to replace `path/to/nmir.rxdb` to point to your NMIR dictionary (Redatam database).
 
-After running the above program, you will find a new dataframe **tbl1** that corresponds to the output of the REDATAM program. You can use R commands to operate with the new dataframe, the outputs of the above commands are:
+After running the above program, you will find a new data frame *tbl1* that corresponds to the output of the REDATAM program. You can use R commands to operate with the new data frame, the output of the above program is:
 
 ```         
 ##  SEXO1_value SEXO1_label  value

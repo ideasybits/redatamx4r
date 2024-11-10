@@ -1,4 +1,17 @@
 url: https://ideasybits.github.io/redatamx4r/
 template:
   bootstrap: 5
+  light-switch: true
+  includes:
+    in_header: |
+       <!-- Global site tag (gtag.js) - Google Analytics -->
+       <script async src="https://www.googletagmanager.com/gtag/js?id={YOUR TRACKING ID}"#' ></script>
+       <script>
+         window.dataLayer = window.dataLayer || [];
+         function gtag(){dataLayer.push(arguments);}
+         gtag('js', new Date());
+
+         gtag('config', 'G-JZGC3ESGYP');
+       </script>
+
 
