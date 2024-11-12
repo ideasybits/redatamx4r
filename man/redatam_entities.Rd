@@ -7,7 +7,7 @@
 redatam_entities(dic)
 }
 \arguments{
-\item{dic}{Dictionary ID (returned by 'redatam.open')}
+\item{dic}{Dictionary identifier (returned by redatam_open())}
 }
 \value{
 Data frame that contains all the entities in the database.

@@ -9,7 +9,7 @@ jobs:
   build:
     env:
       LOWERCASE_OS: 'linux'
-      PKG_VERSION: 'redatamx_1.0.0'
+      PKG_VERSION: 'redatamx_1.0.1'
 
     runs-on: ubuntu-latest
     steps:

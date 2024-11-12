@@ -35,6 +35,7 @@
 #' \dontrun{
 #' dic<-redatam_open("path/to/rxdb")
 #' df<-redatam_query(dic,"freq person.sexo")
+#' print(df)
 #' }
 
 redatam_query<-function( dic, spc, tot.omit=TRUE ) {

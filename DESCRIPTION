@@ -33,6 +33,6 @@ SystemRequirements: 'Redatam' runtime engine (see https://redatam.org),
   <https://redatam-core.s3.us-west-2.amazonaws.com> during the build step.
   Currently supported platforms are Windows, Linux and macOS.
 Copyright: See COPYRIGHTS for details. 
-URL: https://ideasybits.github.io/redatamx4r, https://github.com/ideasybits/redatamx4
+URL: https://ideasybits.github.io/redatamx4r/, https://github.com/ideasybits/redatamx4r/
 BugReports: https://github.com/ideasybits/redatamx4r/issues
 Config/Needs/website: rmarkdown

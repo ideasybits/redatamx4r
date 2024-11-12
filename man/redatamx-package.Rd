@@ -11,8 +11,8 @@ Provides an API to work with 'Redatam' (see \url{https://redatam.org}) databases
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://ideasybits.github.io/redatamx4r}
-  \item \url{https://github.com/ideasybits/redatamx4}
+  \item \url{https://ideasybits.github.io/redatamx4r/}
+  \item \url{https://github.com/ideasybits/redatamx4r/}
   \item Report bugs at \url{https://github.com/ideasybits/redatamx4r/issues}
 }
 

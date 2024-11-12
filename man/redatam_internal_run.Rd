@@ -7,7 +7,7 @@
 redatam_internal_run(dic, file_name)
 }
 \arguments{
-\item{dic}{Dictionary identifier}
+\item{dic}{Dictionary identifier (returned by redatam_open())}
 
 \item{file_name}{Program file name}
 }

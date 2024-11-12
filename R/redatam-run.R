@@ -35,6 +35,7 @@
 #' \dontrun{
 #' dic<-redatam_open("path/to/rxdb")
 #' df<-redatam_run(dic,"/path/to/nmir_test.spc")
+#' print(df)
 #' }
 
 redatam_run<-function( dic, file_name, tot.omit=TRUE ) {

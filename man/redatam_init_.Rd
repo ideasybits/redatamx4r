@@ -7,7 +7,7 @@
 redatam_init_(pachageDir)
 }
 \arguments{
-\item{pachageDir}{Relative path to Redatm runtime (dll, so or dynlib)}
+\item{pachageDir}{Relative path to Redatam runtime (dll, so or dynlib)}
 }
 \value{
 {No return value.}

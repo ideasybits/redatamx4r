@@ -23,7 +23,7 @@
 #' @author Jaime Salvador
 #' @description Open a REDATAM database.
 #' This function returns an ID than can be used in functions to query data.
-#' @param dictionary_name Dictionary filename
+#' @param dictionary_name Dictionary file name
 #' @return ID than can be used in functions to query data.
 #' @export
 #' @examples
@@ -38,8 +38,8 @@ redatam_open <- function(dictionary_name) {
 #' @author Jaime Salvador
 #' @description Save a REDATAM database.
 #' This function  can be used to save a dictionary.
-#' @param dic Dictionary identifier
-#' @param name Dictionary filename
+#' @param dic Dictionary identifier (returned by redatam_open())
+#' @param name Dictionary file name
 #' @return {No return value.}
 #' @export
 #' @examples
@@ -55,7 +55,7 @@ redatam_save <- function(dic, name = "") {
 #' @title Close dictionary
 #' @author Jaime Salvador
 #' @description Close a REDATAM database.
-#' @param dic Dictionary ID (returned by 'redatam.open')
+#' @param dic Dictionary identifier (returned by redatam_open())
 #' @return {No return value.}
 #' @export
 #' @examples
@@ -72,7 +72,7 @@ redatam_close <- function(dic) {
 #' @title List entities
 #' @author Jaime Salvador
 #' @description List the entities in a databse.
-#' @param dic Dictionary ID (returned by 'redatam.open')
+#' @param dic Dictionary identifier (returned by redatam_open())
 #' @return Data frame that contains all the entities in the database.
 #' @export
 #' @examples
@@ -87,7 +87,7 @@ redatam_entities <- function(dic) {
 #' @title List variables for entity
 #' @author Jaime Salvador
 #' @description List the variables in an entity.
-#' @param dic Dictionary ID (returned by 'redatam.open')
+#' @param dic Dictionary identifier (returned by redatam_open())
 #' @param entity_name Entity's name
 #' @return Data frame that contains all the variables from the \sQuote{entity_name}.
 #' @export
@@ -116,7 +116,7 @@ redatam_version <- function() {
 #' @title Execute a Redatam command from text
 #' @author Jaime Salvador
 #' @description Execute a Redatam command: TABLE or AREALIST.
-#' @param dic Dictionary identifier
+#' @param dic Dictionary identifier (returned by redatam_open())
 #' @param spc Program text in SPC format
 #' @return Raw dataset with al values: tot, na, mv, values.
 #' @keywords internal
@@ -132,7 +132,7 @@ redatam_internal_query <- function(dic, spc) {
 #' @title Execute a Redatam command from file
 #' @author Jaime Salvador
 #' @description Execute a Redatam command: TABLE or AREALIST.
-#' @param dic Dictionary identifier
+#' @param dic Dictionary identifier (returned by redatam_open())
 #' @param file_name Program file name
 #' @return Raw dataset with all values: tot, na, mv, values.
 #' @keywords internal
@@ -149,7 +149,7 @@ redatam_internal_run <- function(dic, file_name) {
 #' @author Jaime Salvador
 #' @description Initialize the Redatam engine.
 #' This function is automatically called when the package is loaded.
-#' @param pachageDir Relative path to Redatm runtime (dll, so or dynlib)
+#' @param pachageDir Relative path to Redatam runtime (dll, so or dynlib)
 #' @return {No return value.}
 #' @keywords internal
 #' @examples

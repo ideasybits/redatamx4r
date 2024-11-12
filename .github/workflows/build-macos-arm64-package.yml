@@ -13,7 +13,7 @@ jobs:
   build:
     env:
       LOWERCASE_OS: 'macos-arm64'
-      PKG_VERSION: 'redatamx_1.0.0'
+      PKG_VERSION: 'redatamx_1.0.1'
 
     runs-on: macos-latest
     steps:

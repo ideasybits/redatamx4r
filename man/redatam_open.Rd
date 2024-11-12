@@ -7,7 +7,7 @@
 redatam_open(dictionary_name)
 }
 \arguments{
-\item{dictionary_name}{Dictionary filename}
+\item{dictionary_name}{Dictionary file name}
 }
 \value{
 ID than can be used in functions to query data.

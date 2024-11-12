@@ -22,7 +22,7 @@ You can't modify objects contained in this environment.
 dic<-redatam_open("path/to/rxdb")
 df<-redatam_query(dic,"tbl1<-freq person.sexo")
 # Accessing the tbl1 object from environment
-redatams::outputs$tbl1
+redatamx::outputs$tbl1
 # Accessing the output from Global Environment
 print(df)
 }

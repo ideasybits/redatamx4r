@@ -6,7 +6,7 @@ jobs:
   build:
     env:
       LOWERCASE_OS: 'windows'
-      PKG_VERSION: 'redatamx_1.0.0'
+      PKG_VERSION: 'redatamx_1.0.1'
 
     runs-on: windows-2019
     steps:

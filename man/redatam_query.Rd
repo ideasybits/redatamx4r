@@ -27,6 +27,7 @@ This function removes all the rows that contain total, na or mv values. Addition
 \dontrun{
 dic<-redatam_open("path/to/rxdb")
 df<-redatam_query(dic,"freq person.sexo")
+print(df)
 }
 }
 \author{

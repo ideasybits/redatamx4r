@@ -7,9 +7,9 @@
 redatam_save(dic, name = "")
 }
 \arguments{
-\item{dic}{Dictionary identifier}
+\item{dic}{Dictionary identifier (returned by redatam_open())}
 
-\item{name}{Dictionary filename}
+\item{name}{Dictionary file name}
 }
 \value{
 {No return value.}

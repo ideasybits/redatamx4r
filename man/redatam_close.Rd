@@ -7,7 +7,7 @@
 redatam_close(dic)
 }
 \arguments{
-\item{dic}{Dictionary ID (returned by 'redatam.open')}
+\item{dic}{Dictionary identifier (returned by redatam_open())}
 }
 \value{
 {No return value.}
