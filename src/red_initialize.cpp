@@ -73,10 +73,9 @@ void redatamEngine(std::string libRuntimeName) {
   catch (const dylib::load_error &) {
     //"failed to load 'foo' library"
     API->is_runtime_loaded = false;
-  } catch (const dylib::symbol_error& ex) {
+  } catch (const dylib::symbol_error& ) {
     //"failed to get 'pi_value' symbol"
     API->is_runtime_loaded = false;
-    printf("*****ERROR: %s", ex.what());
   }
 }
 
