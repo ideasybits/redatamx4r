@@ -52,6 +52,7 @@ struct RedatamAPI {
   std::function<void()> redc_destroy;
   std::function<char*()> redc_version;
   std::function<char*()> redc_banner;
+  std::function<char*()> redc_info;
 
   std::function<dictionary_ptr(const char* path, dictionary_entity_handle handle, void* user_data)> redc_dictionary_open;
   std::function<void(dictionary_ptr ptr)> redc_dictionary_close;
@@ -65,6 +66,9 @@ struct RedatamAPI {
 
   std::function<session_ptr( dictionary_ptr ptr, const char* buffer, compiler_callback callback, execution_callback ex_callback)> redc_run_program;
   std::function<session_ptr( dictionary_ptr ptr, const char* file_name, compiler_callback callback, execution_callback ex_callback )> redc_run_program_file;
+
+  //create
+  std::function<void(const char*, const char*)> redc_create_database;
 };
 
 #endif //REDENGINE_REDENGINE_C_H

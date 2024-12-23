@@ -12,5 +12,6 @@
 }
 
 .onAttach<-function(libname, pkgname) {
-  packageStartupMessage( paste("Using: ", redatam_version(), "\n") )
+  #packageStartupMessage( paste("Using: ", redatam_version(), "\n") )
+  packageStartupMessage( paste(redatam_info()) )
 }

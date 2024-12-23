@@ -50,6 +50,8 @@ void redatamEngine(std::string libRuntimeName) {
 
     API->redc_version = _RedatamEngineLibPtr->get_function<char*()>("redc_version");
     API->redc_banner  = _RedatamEngineLibPtr->get_function<char*()>("redc_banner");
+    API->redc_info    = _RedatamEngineLibPtr->get_function<char*()>("redc_info");
+
     API->redc_dictionary_open = _RedatamEngineLibPtr->get_function<dictionary_ptr(const char* path, dictionary_entity_handle handle, void* user_data)>("redc_dictionary_open");
     API->redc_dictionary_close = _RedatamEngineLibPtr->get_function<void(dictionary_ptr ptr)>("redc_dictionary_close");
     API->redc_dictionary_list_entitites = _RedatamEngineLibPtr->get_function<void(dictionary_ptr ptr, dictionary_entity_handle handle, void* user_data)>("redc_dictionary_list_entitites");
@@ -63,14 +65,18 @@ void redatamEngine(std::string libRuntimeName) {
     API->redc_run_program = _RedatamEngineLibPtr->get_function<session_ptr( dictionary_ptr ptr, const char* buffer, compiler_callback callback, execution_callback ex_callback)>("redc_run_program");
     API->redc_run_program_file = _RedatamEngineLibPtr->get_function<session_ptr( dictionary_ptr ptr, const char* file_name, compiler_callback callback, execution_callback ex_callback )>("redc_run_program_file");
 
+    //create
+    API->redc_create_database = _RedatamEngineLibPtr->get_function<void(const char*,const char*)>("redc_create_database");
+
     API->is_runtime_loaded = true;
   }
   catch (const dylib::load_error &) {
     //"failed to load 'foo' library"
     API->is_runtime_loaded = false;
-  } catch (const dylib::symbol_error &) {
+  } catch (const dylib::symbol_error& ex) {
     //"failed to get 'pi_value' symbol"
     API->is_runtime_loaded = false;
+    printf("*****ERROR: %s", ex.what());
   }
 }
 
@@ -83,6 +89,17 @@ std::string redatam_version( ) {
     return "API no loaded!";
   }
 }
+
+[[cpp11::register]]
+std::string redatam_info( ) {
+  if(API->is_runtime_loaded) {
+    return API->redc_info();
+  }
+  else {
+    return "API no loaded!";
+  }
+}
+
 
 [[cpp11::register]]
 void redatam_init_( std::string pachageDir ) {

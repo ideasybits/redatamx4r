@@ -111,7 +111,34 @@ redatam_version <- function() {
   .Call(`_redatamx_redatam_version`)
 }
 
+#' @title Get extended Redatam API information
+#' @author Jaime Salvador
+#' @description Returns extended information about datasources and datasets available.
+#' @return String with the Redatam extended information.
+#' @export
+#' @examples
+#' redatam_info()
+redatam_info <- function() {
+  .Call(`_redatamx_redatam_info`)
+}
+
 #----------------------------------------------------------------------
+#' @title Create Redatam database
+#' @author Jaime Salvador
+#' @description Create a new Redatam database.
+#' @param schema_name Dictionary schema in json format
+#' @param config_name Configuration in json format
+#' @return {No return value.}
+#' @examples
+#' \dontrun{
+#' redatam_create("path/to/schema.json","path/to/config.json")
+#' }
+redatam_create <- function(schema_name, config_name) {
+  invisible(.Call(`_redatamx_redatam_create`, schema_name, config_name))
+}
+
+#----------------------------------------------------------------------
+
 
 #' @title Execute a Redatam command from text
 #' @author Jaime Salvador

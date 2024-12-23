@@ -5,6 +5,14 @@
 #include "cpp11/declarations.hpp"
 #include <R_ext/Visibility.h>
 
+// red_create.cpp
+void redatam_create(const std::string& schema_name, const std::string& config_name);
+extern "C" SEXP _redatamx_redatam_create(SEXP schema_name, SEXP config_name) {
+  BEGIN_CPP11
+    redatam_create(cpp11::as_cpp<cpp11::decay_t<const std::string&>>(schema_name), cpp11::as_cpp<cpp11::decay_t<const std::string&>>(config_name));
+    return R_NilValue;
+  END_CPP11
+}
 // red_dictionary.cpp
 SEXP redatam_open(const std::string& dictionary_name);
 extern "C" SEXP _redatamx_redatam_open(SEXP dictionary_name) {
@@ -64,6 +72,13 @@ extern "C" SEXP _redatamx_redatam_version() {
   END_CPP11
 }
 // red_initialize.cpp
+std::string redatam_info();
+extern "C" SEXP _redatamx_redatam_info() {
+  BEGIN_CPP11
+    return cpp11::as_sexp(redatam_info());
+  END_CPP11
+}
+// red_initialize.cpp
 void redatam_init_(std::string pachageDir);
 extern "C" SEXP _redatamx_redatam_init_(SEXP pachageDir) {
   BEGIN_CPP11
@@ -83,8 +98,10 @@ extern "C" SEXP _redatamx_redatam_destroy_() {
 extern "C" {
 static const R_CallMethodDef CallEntries[] = {
     {"_redatamx_redatam_close",          (DL_FUNC) &_redatamx_redatam_close,          1},
+    {"_redatamx_redatam_create",         (DL_FUNC) &_redatamx_redatam_create,         2},
     {"_redatamx_redatam_destroy_",       (DL_FUNC) &_redatamx_redatam_destroy_,       0},
     {"_redatamx_redatam_entities",       (DL_FUNC) &_redatamx_redatam_entities,       1},
+    {"_redatamx_redatam_info",           (DL_FUNC) &_redatamx_redatam_info,           0},
     {"_redatamx_redatam_init_",          (DL_FUNC) &_redatamx_redatam_init_,          1},
     {"_redatamx_redatam_internal_query", (DL_FUNC) &_redatamx_redatam_internal_query, 2},
     {"_redatamx_redatam_internal_run",   (DL_FUNC) &_redatamx_redatam_internal_run,   2},

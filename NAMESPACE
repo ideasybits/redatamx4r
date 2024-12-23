@@ -3,6 +3,7 @@
 export(outputs)
 export(redatam_close)
 export(redatam_entities)
+export(redatam_info)
 export(redatam_open)
 export(redatam_query)
 export(redatam_run)

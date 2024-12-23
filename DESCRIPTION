@@ -1,6 +1,6 @@
 Package: redatamx
 Title: R Interface to 'Redatam' Library
-Version: 1.0.1
+Version: 1.1.0
 Authors@R: c(
     person(
       given = "Jaime", 
