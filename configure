@@ -47,7 +47,7 @@ if [ ! -e inst/redengine/libredengine-1.0.0-rc2.so ]; then
 	#    allok=no
 	#fi
 
-  cp tmpredatam/release/libredengine-1.0.0-rc2.* inst/redengine
+  cp tmpredatam/release/lib/redengine-1.0.0-rc2.* inst/redengine
   rm -rf redatamx-engine.zip
   rm -rf tmpredatam
 fi
