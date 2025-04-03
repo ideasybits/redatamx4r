@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   articles/crosstabs: crosstabs.html
-last_built: 2024-12-24T14:26Z
+last_built: 2025-04-03T15:08Z
 urls:
   reference: https://ideasybits.github.io/redatamx4r/reference
   article: https://ideasybits.github.io/redatamx4r/articles

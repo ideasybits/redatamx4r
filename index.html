@@ -29,7 +29,7 @@
 
     <a class="navbar-brand me-2" href="index.html">redatamx</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -111,6 +111,58 @@
 <pre><code><span><span class="co">##  SEXO1_value SEXO1_label  value</span></span>
 <span><span class="co">##            1      Hombre  26834</span></span>
 <span><span class="co">##            2       Mujer  25355</span></span></code></pre>
+</div>
+<div class="section level2">
+<h2 id="plugins">Plugins<a class="anchor" aria-label="anchor" href="#plugins"></a>
+</h2>
+<p>You can use custom plugins:</p>
+<ul>
+<li>Datasources: custom formats for database creation</li>
+<li>Exporters: custom formats for exporting the outputs (tables) of SPC queries</li>
+</ul>
+<p>You can check the available plugins using <code><a href="reference/redatam_info.html">redatam_info()</a></code> function:</p>
+<pre><code>&gt; redatam_info()
+RedEngine 1.0.1-final - &lt;&lt;compiler info&gt;&gt; on 'Apr  3 2025'
+  Boost version      : 1_85
+  Arrow version      : Compiled with '19.0.1', running on 19.0.1 (1900)
+  Parquet version    : Compiled with 'parquet-cpp-arrow version 19.0.1'
+  LibXml2 version    : Compiled with '2.13.6'
+  Fmt version        : Compiled with '110002'
+  OpenSSL version    : Compiled with 'OpenSSL 3.4.1 11 Feb 2025'
+Datasources
+  CSPRO            CSPRO Redatam datasource
+Exporters
+  JSON             JSON Redatam exporter (.json files)
+  SIDRA            SIDRA Redatam exporter (.sidra files)
+  TXT              TEXT Redatam exporter (.txt files)</code></pre>
+<p>The built-in plugins are: CSPRO, CSV, JSON, SIDRA, TXT.</p>
+<p>Third-party plugins available for <a href="https://github.com/ideasybits/redatamx4r/archive/refs/tags/VERSION_1.1.0.zip" class="external-link">download</a>:</p>
+<ul>
+<li>CSV, SPSS and STATA datasources</li>
+<li>XLSX exporter</li>
+</ul>
+<p>Depending on the operating system, you need to load <code>.dll</code> file for windows, <code>.so</code> for linux and <code>.dynlib</code> for macOS (arm or x86).</p>
+<pre><code><span><span class="fu"><a href="reference/redatam_load_plugin.html">redatam_load_plugin</a></span><span class="op">(</span><span class="st">'path/to/plugins/datasource-csv.dll'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/redatam_load_plugin.html">redatam_load_plugin</a></span><span class="op">(</span><span class="st">'path/to/plugins/datasource-spss.dll'</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/redatam_load_plugin.html">redatam_load_plugin</a></span><span class="op">(</span><span class="st">'path/to/plugins/exporter-xlsx.dll'</span><span class="op">)</span></span></code></pre>
+<pre><code>&gt; redatam_info()
+RedEngine 1.0.1-final - &lt;&lt;compiler info&gt;&gt; on 'Apr  3 2025'
+  Boost version      : 1_85
+  Arrow version      : Compiled with '19.0.1', running on 19.0.1 (1900)
+  Parquet version    : Compiled with 'parquet-cpp-arrow version 19.0.1'
+  LibXml2 version    : Compiled with '2.13.6'
+  Fmt version        : Compiled with '110002'
+  OpenSSL version    : Compiled with 'OpenSSL 3.4.1 11 Feb 2025'
+Datasources
+  CSPRO            CSPRO Redatam datasource
+  SPSS             SPSS Redatam datasource
+  STATA            STATA Redatam datasource
+Exporters
+  CSV              CSV Redatam exporter (.csv files)
+  JSON             JSON Redatam exporter (.json files)
+  SIDRA            SIDRA Redatam exporter (.sidra files)
+  TXT              TEXT Redatam exporter (.txt files)
+  XLSX             XLSX Redatam exporter (.xlsx files)</code></pre>
 </div>
 <div class="section level2">
 <h2 id="credits">Credits<a class="anchor" aria-label="anchor" href="#credits"></a>
