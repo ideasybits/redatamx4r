@@ -69,6 +69,9 @@ struct RedatamAPI {
 
   //create
   std::function<void(const char*, const char*)> redc_create_database;
+
+  //plugins
+  std::function<void(const char*)> redc_plugins_load_plugin;
 };
 
 #endif //REDENGINE_REDENGINE_C_H

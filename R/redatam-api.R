@@ -119,7 +119,7 @@ redatam_version <- function() {
 #' @examples
 #' redatam_info()
 redatam_info <- function() {
-  .Call(`_redatamx_redatam_info`)
+  cat(.Call(`_redatamx_redatam_info`))
 }
 
 #----------------------------------------------------------------------

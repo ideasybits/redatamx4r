@@ -1,3 +1,11 @@
+# Redatam R package version 1.1.1
+
+- Updated to Redatam engine 2025-04-03 (Redatam 1.0.1-final)
+- Added 'redatam_load_plugin(file_path)' to load plugins conataining datasets or exporters
+- Fixed some bugs inside Redaram 1.0.1-final.
+- Added plugins to GitHub repository.
+- Fixed redatam_info() output
+
 # Redatam R package version 1.1.0
 
 - Updated to Redatam engine 2024-12-22.

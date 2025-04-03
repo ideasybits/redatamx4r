@@ -1,5 +1,6 @@
 .onLoad <- function(libname, pkgname){
 
+  #path to library root
   libRuntimeName = system.file("redengine", "", package = pkgname);
 
   invisible(.Call(`_redatamx_redatam_init_`, libRuntimeName))
@@ -12,6 +13,5 @@
 }
 
 .onAttach<-function(libname, pkgname) {
-  #packageStartupMessage( paste("Using: ", redatam_version(), "\n") )
-  packageStartupMessage( paste(redatam_info()) )
+  packageStartupMessage( paste("Using: ", redatam_version(), "\n") )
 }

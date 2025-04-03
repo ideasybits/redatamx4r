@@ -94,6 +94,14 @@ extern "C" SEXP _redatamx_redatam_destroy_() {
     return R_NilValue;
   END_CPP11
 }
+// red_plugins.cpp
+void redatam_load_plugin(const std::string& spc);
+extern "C" SEXP _redatamx_redatam_load_plugin(SEXP spc) {
+  BEGIN_CPP11
+    redatam_load_plugin(cpp11::as_cpp<cpp11::decay_t<const std::string&>>(spc));
+    return R_NilValue;
+  END_CPP11
+}
 
 extern "C" {
 static const R_CallMethodDef CallEntries[] = {
@@ -105,6 +113,7 @@ static const R_CallMethodDef CallEntries[] = {
     {"_redatamx_redatam_init_",          (DL_FUNC) &_redatamx_redatam_init_,          1},
     {"_redatamx_redatam_internal_query", (DL_FUNC) &_redatamx_redatam_internal_query, 2},
     {"_redatamx_redatam_internal_run",   (DL_FUNC) &_redatamx_redatam_internal_run,   2},
+    {"_redatamx_redatam_load_plugin",    (DL_FUNC) &_redatamx_redatam_load_plugin,    1},
     {"_redatamx_redatam_open",           (DL_FUNC) &_redatamx_redatam_open,           1},
     {"_redatamx_redatam_save",           (DL_FUNC) &_redatamx_redatam_save,           2},
     {"_redatamx_redatam_variables",      (DL_FUNC) &_redatamx_redatam_variables,      2},

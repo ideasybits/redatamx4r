@@ -37,11 +37,14 @@ std::shared_ptr<RedatamAPI> API;
 
 typedef std::function<char*()> redc_versionFn;
 
-void redatamEngine(std::string libRuntimeName) {
+const std::string lib_name = "redengine-1.0.1-final";
 
+
+void redatamEngine(std::string libRuntimeName) {
   try {
+
     if(_RedatamEngineLibPtr==nullptr) {
-      _RedatamEngineLibPtr = std::make_shared<dylib>(libRuntimeName, "redengine-1.0.0-rc2" );
+      _RedatamEngineLibPtr = std::make_shared<dylib>(libRuntimeName, lib_name );
       API = std::make_shared<RedatamAPI>();
     }
 
@@ -68,10 +71,13 @@ void redatamEngine(std::string libRuntimeName) {
     //create
     API->redc_create_database = _RedatamEngineLibPtr->get_function<void(const char*,const char*)>("redc_create_database");
 
+    //plugins
+    API->redc_plugins_load_plugin = _RedatamEngineLibPtr->get_function<void(const char *)>("redc_plugins_load_plugin");
+
     API->is_runtime_loaded = true;
   }
   catch (const dylib::load_error &) {
-    //"failed to load 'foo' library"
+    //"failed to load 'xx' library"
     API->is_runtime_loaded = false;
   } catch (const dylib::symbol_error& ) {
     //"failed to get 'pi_value' symbol"
@@ -101,9 +107,8 @@ std::string redatam_info( ) {
 
 
 [[cpp11::register]]
-void redatam_init_( std::string pachageDir ) {
-
-  redatamEngine(pachageDir);
+void redatam_init_( std::string packageDir ) {
+  redatamEngine(packageDir);
 
   if(API->is_runtime_loaded) {
     API->redc_init();

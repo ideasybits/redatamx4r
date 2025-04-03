@@ -6,7 +6,10 @@ runtime=`"${R_HOME}/bin/Rscript" -e 'cat(R.version$platform)'`
 
 echo "  found: '$runtime'"
 
-url="https://redatam-core.s3.us-west-2.amazonaws.com/core-dev/windows/redatamx-core-windows-20241222.zip"
+##final version 1.0.1
+engine_file="redengine-1.0.1-final"
+
+url="https://redatam-core.s3.us-west-2.amazonaws.com/core-dev/windows/redatamx-core-windows-1.0.1-final.zip"
 
 echo "  using download from '$url'"
 
@@ -16,11 +19,7 @@ allok=yes
 
 mkdir -p inst/redengine
 
-#rm -rf inst/redengine/*.so
-#rm -rf inst/redengine/*.dll
-#rm -rf inst/redengine/*.dylib
-
-if [ ! -e inst/redengine/redengine-1.0.0-rc2.dll ]; then
+if [ ! -e inst/redengine/$engine_file ]; then
   echo "  cannot find current redatam runtime files"
   echo "  attempting to download them"
   echo "  download.file('$url','redatam-engine.zip',mode='wb')"|${R_HOME}/bin/R --vanilla --slave
@@ -28,11 +27,7 @@ if [ ! -e inst/redengine/redengine-1.0.0-rc2.dll ]; then
 
   unzip -o -d tmpredatam redatam-engine.zip
 
-  if [ ! -e tmpredatam/bin/redengine-1.0.0-rc2.dll ]; then
-	    allok=no
-	fi
-
-  cp tmpredatam/release/bin/redengine-1.0.0-rc2.dll inst/redengine
+  cp tmpredatam/release/bin/$engine_file.* inst/redengine
   rm -rf redatamx-engine.zip
   rm -rf tmpredatam
 

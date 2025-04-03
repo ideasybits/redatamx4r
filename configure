@@ -24,8 +24,10 @@ if [ "$architecture" != "x86_64" ]; then
   redatamurl="$redatamurl-arm64"
 fi;
 
+##final version 1.0.1
+engine_file="libredengine-1.0.1-final"
 
-url="https://redatam-core.s3.us-west-2.amazonaws.com/core-dev/$redatamurl/redatamx-core-$redatamurl-20241222.zip"
+url="https://redatam-core.s3.us-west-2.amazonaws.com/core-dev/$redatamurl/redatamx-core-$redatamurl-1.0.1-final.zip"
 
 echo "  using download from '$url'"
 
@@ -35,7 +37,7 @@ allok=yes
 
 mkdir -p inst/redengine
 
-if [ ! -e inst/redengine/libredengine-1.0.0-rc2.so ]; then
+if [ ! -e inst/redengine/$engine_file ]; then
   echo "  cannot find current redatam runtime files"
   echo "  attempting to download them"
   echo "  download.file('$url','redatam-engine.zip',mode='wb')"|${R_HOME}/bin/R --vanilla --slave
@@ -43,11 +45,7 @@ if [ ! -e inst/redengine/libredengine-1.0.0-rc2.so ]; then
 
   unzip -o -d tmpredatam redatam-engine.zip
 
-  #if [ ! -e tmpredatam/lib/libredengine-1.0.0-rc2.so ]; then
-	#    allok=no
-	#fi
-
-  cp tmpredatam/release/lib/libredengine-1.0.0-rc2.* inst/redengine
+  cp tmpredatam/release/lib/$engine_file.* inst/redengine
   rm -rf redatamx-engine.zip
   rm -rf tmpredatam
 fi
