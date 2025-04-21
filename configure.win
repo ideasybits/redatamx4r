@@ -1,35 +1,40 @@
 #!/bin/sh
 
-echo "  checking runtime"
+echo "checking runtime"
 
 runtime=`"${R_HOME}/bin/Rscript" -e 'cat(R.version$platform)'`
 
-echo "  found: '$runtime'"
+echo "found: '$runtime'"
 
 ##final version 1.0.1
 engine_file="redengine-1.0.1-final"
 
-url="https://redatam-core.s3.us-west-2.amazonaws.com/core-dev/windows/redatamx-core-windows-1.0.1-final.zip"
+URL="https://redatam-core.s3.us-west-2.amazonaws.com/core-dev/windows/redatamx-core-windows-1.0.1-final.zip"
+DEST="redatam-engine.zip"
 
-echo "  using download from '$url'"
-
-echo "  checking REDATAM libraries"
+echo "using download from '$URL'"
+echo "checking REDATAM libraries"
 
 allok=yes
 
 mkdir -p inst/redengine
 
 if [ ! -e inst/redengine/$engine_file ]; then
-  echo "  cannot find current redatam runtime files"
-  echo "  attempting to download them"
-  echo "  download.file('$url','redatam-engine.zip',mode='wb')"|${R_HOME}/bin/R --vanilla --slave
-  echo "  unpacking current redatam runtime"
+  echo "cannot find current redatam runtime files"
+  echo "attempting to download them"
+  echo "download.file('$URL','$DEST',mode='wb')"|${R_HOME}/bin/R --vanilla --slave
 
-  unzip -o -d tmpredatam redatam-engine.zip
+  if [ -f $DEST ]; then
+    echo "unpacking current redatam runtime"
+    unzip -o -d tmpredatam redatam-engine.zip
 
-  cp tmpredatam/release/bin/$engine_file.* inst/redengine
-  rm -rf redatamx-engine.zip
-  rm -rf tmpredatam
+    cp tmpredatam/release/bin/$engine_file.* inst/redengine
+    rm -rf redatamx-engine.zip
+    rm -rf tmpredatam
+  else
+    echo "Can't download file '$URL', compilation continue without runtime"
+    #  exit 1
+  fi
 
 fi
 

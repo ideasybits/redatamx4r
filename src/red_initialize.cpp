@@ -24,6 +24,7 @@
 #include <string>
 #include <functional>
 #include <iostream>
+#include <filesystem>
 
 #include "cpp11.hpp"
 
@@ -41,11 +42,14 @@ const std::string lib_name = "redengine-1.0.1-final";
 
 
 void redatamEngine(std::string libRuntimeName) {
+
   try {
 
     if(_RedatamEngineLibPtr==nullptr) {
-      _RedatamEngineLibPtr = std::make_shared<dylib>(libRuntimeName, lib_name );
       API = std::make_shared<RedatamAPI>();
+      API->is_runtime_loaded = false;
+
+      _RedatamEngineLibPtr = std::make_shared<dylib>(libRuntimeName, lib_name);
     }
 
     API->redc_init    = _RedatamEngineLibPtr->get_function<void()>("redc_init");
@@ -76,12 +80,10 @@ void redatamEngine(std::string libRuntimeName) {
 
     API->is_runtime_loaded = true;
   }
-  catch (const dylib::load_error &) {
-    //"failed to load 'xx' library"
-    API->is_runtime_loaded = false;
-  } catch (const dylib::symbol_error& ) {
-    //"failed to get 'pi_value' symbol"
-    API->is_runtime_loaded = false;
+  catch (const dylib::load_error& ex) {
+    //cpp11::warning(ex.what());
+  } catch (const dylib::symbol_error& ex) {
+    //cpp11::warning(ex.what());
   }
 }
 
@@ -91,7 +93,7 @@ std::string redatam_version( ) {
     return API->redc_version();
   }
   else {
-    return "API no loaded!";
+    return "Redatam API no loaded!";
   }
 }
 
@@ -113,6 +115,9 @@ void redatam_init_( std::string packageDir ) {
   if(API->is_runtime_loaded) {
     API->redc_init();
   }
+  else {
+    //cpp11::warning("Redatam engine library not initialized.");
+  }
 }
 
 [[cpp11::register]]
@@ -120,6 +125,9 @@ void redatam_destroy_( ) {
 
   if(API->is_runtime_loaded) {
     API->redc_destroy();
+  }
+  else {
+    //cpp11::warning("Redatam engine library not initialized.");
   }
 
   API.reset();
