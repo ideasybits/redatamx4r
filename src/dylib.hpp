@@ -52,7 +52,7 @@
 class dylib {
 public:
     struct filename_components {
-        static constexpr const char *prefix = DYLIB_WIN_OTHER("", "lib");
+        static constexpr const char *prefix = DYLIB_WIN_OTHER("lib", "lib");
         static constexpr const char *suffix = DYLIB_WIN_MAC_OTHER(".dll", ".dylib", ".so");
     };
     using native_handle_type = DYLIB_WIN_OTHER(HINSTANCE, void *);

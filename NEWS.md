@@ -1,3 +1,11 @@
+# Version 1.1.3
+
+* Redatam Engine updated to 1.1.0-final (same major.minor version as CRAN project)
+* Redatam Engine Windows version updated to use GCC 14.2 on windows
+* Fixed non-utf8 characters in database paths
+* Add 'valid(varname)' command to SPC syntax
+* Fixed 'NOT(expr)' command
+
 # Version 1.1.2
 
 * Fixed 'Packages which use Internet resources should fail gracefully with an informative message

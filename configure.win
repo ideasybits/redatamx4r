@@ -6,10 +6,11 @@ runtime=`"${R_HOME}/bin/Rscript" -e 'cat(R.version$platform)'`
 
 echo "found: '$runtime'"
 
-##final version 1.0.1
-engine_file="redengine-1.0.1-final"
+##core engine version
+engine_version="1.1.0-final"
+engine_file="libredengine-$engine_version"
 
-URL="https://redatam-core.s3.us-west-2.amazonaws.com/core-dev/windows/redatamx-core-windows-1.0.1-final.zip"
+URL="https://redatam-core.s3.us-west-2.amazonaws.com/core-dev/windows-gcc/redatamx-core-windows-gcc-$engine_version.zip"
 DEST="redatam-engine.zip"
 
 echo "using download from '$URL'"
