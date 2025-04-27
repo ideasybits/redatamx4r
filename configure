@@ -24,7 +24,7 @@ if [ "$architecture" != "x86_64" ]; then
   redatamurl="$redatamurl-arm64"
 fi;
 
-##final version 1.0.1
+##core engine version
 engine_version="1.1.0-final"
 engine_file="libredengine-$engine_version"
 
