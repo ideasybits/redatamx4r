@@ -25,9 +25,10 @@ if [ "$architecture" != "x86_64" ]; then
 fi;
 
 ##final version 1.0.1
-engine_file="libredengine-1.0.1-final"
+engine_version="1.1.0-final"
+engine_file="libredengine-$engine_version"
 
-URL="https://redatam-core.s3.us-west-2.amazonaws.com/core-dev/$redatamurl/redatamx-core-$redatamurl-1.0.1-final.zip"
+URL="https://redatam-core.s3.us-west-2.amazonaws.com/core-dev/$redatamurl/redatamx-core-$redatamurl-$engine_version.zip"
 DEST="redatam-engine.zip"
 
 echo "using download from '$URL'"
