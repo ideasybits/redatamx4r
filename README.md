@@ -76,7 +76,7 @@ Exporters
 The built-in plugins are: CSPRO, CSV, JSON, SIDRA, TXT.
 
 
-Third-party plugins available for [download](https://github.com/ideasybits/redatamx4r/releases/download/VERSION_1.1.1/plugins-1.1.1.zip):
+Third-party plugins available for donwload in the release page.
 
 * CSV, SPSS and STATA datasources
 * XLSX exporter
