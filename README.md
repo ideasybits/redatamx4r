@@ -76,7 +76,7 @@ Exporters
 The built-in plugins are: CSPRO, CSV, JSON, SIDRA, TXT.
 
 
-Third-party plugins available for [download](https://github.com/ideasybits/redatamx4r/releases/download/VERSION_1.1.1/plugins-1.1.1.zip):
+Third-party plugins available for donwload in the release page.
 
 * CSV, SPSS and STATA datasources
 * XLSX exporter
@@ -91,13 +91,13 @@ redatam_load_plugin('path/to/plugins/exporter-xlsx.dll')
 
 ```
 > redatam_info()
-RedEngine 1.0.1-final - <<compiler info>> on 'Apr  3 2025'
-  Boost version      : 1_85
+RedEngine 1.1.0-final - <<compiler info>> on 'Apr 27 2025'
+  Boost version      : 1_87
   Arrow version      : Compiled with '19.0.1', running on 19.0.1 (1900)
   Parquet version    : Compiled with 'parquet-cpp-arrow version 19.0.1'
-  LibXml2 version    : Compiled with '2.13.6'
+  LibXml2 version    : Compiled with '2.13.5'
   Fmt version        : Compiled with '110002'
-  OpenSSL version    : Compiled with 'OpenSSL 3.4.1 11 Feb 2025'
+  OpenSSL version    : Compiled with 'OpenSSL 3.5.0 8 Apr 2025'
 Datasources
   CSPRO            CSPRO Redatam datasource
   SPSS             SPSS Redatam datasource
