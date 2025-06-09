@@ -2,7 +2,7 @@
 
 * Redatam Engine updated to 1.1.1-final
 * Fixed SWITCH command parser
-* ENGINE, RXAPP: WIN32 Corrección nombre de archivos con tildes (caracteres latinos)
+* ENGINE, RXAPP: WIN32 Fixed file names with Latin characteres
 
 # Version 1.1.3
 
