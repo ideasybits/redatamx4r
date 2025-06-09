@@ -1,3 +1,9 @@
+# Version 1.1.4
+
+* Redatam Engine updated to 1.1.1-final
+* Fixed SWITCH command parser
+* ENGINE, RXAPP: WIN32 Corrección nombre de archivos con tildes (caracteres latinos)
+
 # Version 1.1.3
 
 * Redatam Engine updated to 1.1.0-final (same major.minor version as CRAN project)
