@@ -86,6 +86,7 @@ Depending on the operating system, you need to load `.dll` file for windows, `.s
 ```
 redatam_load_plugin('path/to/plugins/datasource-csv.dll')
 redatam_load_plugin('path/to/plugins/datasource-spss.dll')
+redatam_load_plugin('path/to/plugins/datasource-cspro8.dll')
 redatam_load_plugin('path/to/plugins/exporter-xlsx.dll')
 ```
 

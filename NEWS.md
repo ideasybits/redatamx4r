@@ -3,9 +3,10 @@
 * Redatam Engine updated to 1.2.0-final
 * New CSPro8 support
 * Fixed JSON exports for aggregation functions (MEDIAN, AVERAGE, etc)
-* Database creation: @cmpcode variable in all selectable entities
+* @cmpcode variable is created for all selectable entities
 * Variables and entities can be referenced by alias
 * Fixed UTF-8 characters in database creation (lookups)
+* Autoconfiguration mode in database creation: @cmpdode, no SDC, data file, auto-lookups
 
 # Version 1.1.4
 
