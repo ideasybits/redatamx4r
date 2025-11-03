@@ -79,10 +79,10 @@ extern "C" SEXP _redatamx_redatam_info() {
   END_CPP11
 }
 // red_initialize.cpp
-void redatam_init_(std::string pachageDir);
-extern "C" SEXP _redatamx_redatam_init_(SEXP pachageDir) {
+void redatam_init_(std::string packageDir);
+extern "C" SEXP _redatamx_redatam_init_(SEXP packageDir) {
   BEGIN_CPP11
-    redatam_init_(cpp11::as_cpp<cpp11::decay_t<std::string>>(pachageDir));
+    redatam_init_(cpp11::as_cpp<cpp11::decay_t<std::string>>(packageDir));
     return R_NilValue;
   END_CPP11
 }

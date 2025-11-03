@@ -38,7 +38,7 @@ std::shared_ptr<RedatamAPI> API;
 
 typedef std::function<char*()> redc_versionFn;
 
-const std::string lib_name = "redengine-1.1.1-final";
+const std::string lib_name = "redengine-1.2.0-final";
 
 void redatamEngine(std::string libRuntimeName) {
 

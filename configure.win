@@ -7,7 +7,7 @@ runtime=`"${R_HOME}/bin/Rscript" -e 'cat(R.version$platform)'`
 echo "found: '$runtime'"
 
 ##core engine version
-engine_version="1.1.1-final"
+engine_version="1.2.0-final"
 engine_file="libredengine-$engine_version"
 
 URL="https://redatam-core.s3.us-west-2.amazonaws.com/core-dev/windows-gcc/redatamx-core-windows-gcc-$engine_version.zip"

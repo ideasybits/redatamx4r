@@ -1,6 +1,6 @@
 Package: redatamx
 Title: R Interface to 'Redatam' Library
-Version: 1.1.4
+Version: 1.2.0
 Authors@R: c(
     person(
       given = "Jaime", 
@@ -25,7 +25,7 @@ License: GPL (>= 3)
 Encoding: UTF-8
 Language: en-US
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 NeedsCompilation: yes
 LinkingTo: cpp11
 SystemRequirements: 'Redatam' runtime engine (see https://redatam.org), 
