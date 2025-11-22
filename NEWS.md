@@ -1,3 +1,8 @@
+# Version 1.2.1
+
+* Redatam Engine updated to 1.2.0-final
+* Fixed RUNDEF FILTER bug
+
 # Version 1.2.0
 
 * Redatam Engine updated to 1.2.0-final
