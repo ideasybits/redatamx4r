@@ -1,9 +1,9 @@
 pandoc: 3.1.11
-pkgdown: 2.1.3
+pkgdown: 2.2.0
 pkgdown_sha: ~
 articles:
   articles/crosstabs: crosstabs.html
-last_built: 2025-11-04T17:59Z
+last_built: 2025-11-22T22:17Z
 urls:
   reference: https://ideasybits.github.io/redatamx4r/reference
   article: https://ideasybits.github.io/redatamx4r/articles
