@@ -20,13 +20,13 @@ Jaime Salvador
 
 ``` r
 redatam_info()
-#> RedEngine 1.2.1-final - Linux, compiled by 'GNU C++ version 13.3.0' on 'Nov 19 2025'
-#>   Boost version      : 1_89
+#> RedEngine 1.3.0-final - Linux, compiled by 'GNU C++ version 13.3.0' on 'Apr 25 2026'
+#>   Boost version      : 1_90
 #>   Arrow version      : Compiled with '21.0.0', running on 21.0.0 (2100)
 #>   Parquet version    : Compiled with 'parquet-cpp-arrow version 21.0.0'
-#>   LibXml2 version    : Compiled with '2.15.0'
-#>   Fmt version        : Compiled with '120000'
-#>   OpenSSL version    : Compiled with 'OpenSSL 3.6.0 1 Oct 2025'
+#>   LibXml2 version    : Compiled with '2.15.1'
+#>   Fmt version        : Compiled with '120100'
+#>   OpenSSL version    : Compiled with 'OpenSSL 3.6.1 27 Jan 2026'
 #> Datasources
 #>   CSPRO            CSPRO Redatam datasource
 #> Exporters

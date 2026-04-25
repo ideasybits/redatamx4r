@@ -20,5 +20,5 @@ Jaime Salvador
 
 ``` r
 redatam_version()
-#> [1] "RedEngine 1.2.1-final - Linux, compiled by 'GNU C++ version 13.3.0' on 'Nov 19 2025'"
+#> [1] "RedEngine 1.3.0-final - Linux, compiled by 'GNU C++ version 13.3.0' on 'Apr 25 2026'"
 ```
