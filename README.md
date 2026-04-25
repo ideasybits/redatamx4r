@@ -114,6 +114,6 @@ Exporters
 
 ## Credits
 
-This package was created and is supported by Jaime Salvador ([jaime.salvador\@ideasybits.com](mailto:jaime.salvador@ideasybits.com){.email}).
+This package was created and is supported by Jaime Salvador ([jaime.salvador\@ideasybits.com](mailto:jaime.salvador@ideasybits.com)) and CELADE ([redatam\@cepal.org](mailto:redatam@cepal.org)).
 
-The REDATAM software is developed by [CELADE](https://redatam.org/).
+The REDATAM software is developed by [CELADE](https://redatam.org/) ([redatam\@cepal.org](mailto:redatam@cepal.org)).
