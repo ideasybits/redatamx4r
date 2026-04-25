@@ -51,12 +51,12 @@ After running the above program, you will find a new data frame *tbl1* that corr
 
 You can use custom plugins:
 
-* Datasources: custom formats for database creation
-* Exporters: custom formats for exporting the outputs (tables) of SPC queries
+- Datasources: custom formats for database creation
+- Exporters: custom formats for exporting the outputs (tables) of SPC queries
 
 You can check the available plugins using `redatam_info()` function:
 
-```
+```         
 > redatam_info()
 RedEngine 1.0.1-final - <<compiler info>> on 'Apr  3 2025'
   Boost version      : 1_85
@@ -75,22 +75,21 @@ Exporters
 
 The built-in plugins are: CSPRO, CSV, JSON, SIDRA, TXT.
 
-
 Third-party plugins available for donwload in the release page.
 
-* CSV, SPSS and STATA datasources
-* XLSX exporter
+- CSV, SPSS and STATA datasources
+- XLSX exporter
 
 Depending on the operating system, you need to load `.dll` file for windows, `.so` for linux and `.dynlib` for macOS (arm or x86).
 
-```
+```         
 redatam_load_plugin('path/to/plugins/datasource-csv.dll')
 redatam_load_plugin('path/to/plugins/datasource-spss.dll')
 redatam_load_plugin('path/to/plugins/datasource-cspro8.dll')
 redatam_load_plugin('path/to/plugins/exporter-xlsx.dll')
 ```
 
-```
+```         
 > redatam_info()
 RedEngine 1.1.0-final - <<compiler info>> on 'Apr 27 2025'
   Boost version      : 1_87
@@ -111,10 +110,8 @@ Exporters
   XLSX             XLSX Redatam exporter (.xlsx files)
 ```
 
-
 ## Credits
 
 This package was created and is supported by Jaime Salvador ([jaime.salvador\@ideasybits.com](mailto:jaime.salvador@ideasybits.com)) and CELADE ([redatam\@cepal.org](mailto:redatam@cepal.org)).
 
-The REDATAM software is developed by [CELADE](https://redatam.org/) ([redatam\@cepal.org](mailto:redatam@cepal.org)) which is:
-Copyright (C) 1985-2026, by CELADE, Population Division of ECLAC-United Nations..
+The REDATAM software is developed by [CELADE](https://redatam.org/) ([redatam\@cepal.org](mailto:redatam@cepal.org)) which is: Copyright (C) 1985-2026, by CELADE, Population Division of ECLAC-United Nations..

@@ -1,3 +1,10 @@
+# Version 1.3.0
+
+* Redatam Engine updated to 1.3.0-final
+* Updated dependencies
+* Fixed invalid char in selection path
+* Fixed invalid chars (like **) in creation module. All invalid values are assigned to MV
+
 # Version 1.2.1
 
 * Redatam Engine updated to 1.2.1-final
