@@ -116,4 +116,5 @@ Exporters
 
 This package was created and is supported by Jaime Salvador ([jaime.salvador\@ideasybits.com](mailto:jaime.salvador@ideasybits.com)) and CELADE ([redatam\@cepal.org](mailto:redatam@cepal.org)).
 
-The REDATAM software is developed by [CELADE](https://redatam.org/) ([redatam\@cepal.org](mailto:redatam@cepal.org)).
+The REDATAM software is developed by [CELADE](https://redatam.org/) ([redatam\@cepal.org](mailto:redatam@cepal.org)) which is:
+Copyright (C) 1985-2026, by CELADE, Population Division of ECLAC-United Nations..
