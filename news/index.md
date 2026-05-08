@@ -2,6 +2,8 @@
 
 ## Version 1.3.0
 
+CRAN release: 2026-05-06
+
 - Redatam Engine updated to 1.3.0-final
 - Updated dependencies
 - Fixed invalid char in selection path

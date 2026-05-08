@@ -1,6 +1,7 @@
 # Crosstabs
 
 ``` r
+
 library(redatamx)
 ```
 
@@ -8,6 +9,7 @@ After opening a dictionary, you can execute a SPC command using
 `redatam_query`
 
 ``` r
+
 # Open NMIR database
 dic<-redatam_open('path/to/nmiresp.rxdb')
 
@@ -36,6 +38,7 @@ As you can see, there are 3 columns in the generated dataframe:
 We can also generate plot graphs, the `RColorBrewer` package is used:
 
 ``` r
+
 library(RColorBrewer) # for colors
 
 coul <- brewer.pal(5, "Set2")
@@ -50,6 +53,7 @@ using `redatam.query`. The next exmaple, run a crosstab
 generated dataframe, and finally print the dataframe:
 
 ``` r
+
 # Run a crosstab 'freq person.ecivil by person.sexo'
 t2<-redatam_query(dic, "freq person.ecivil by person.sexo")
 
@@ -80,6 +84,7 @@ Finally, if you need to make a crosstable, you can use R built-in
 functions:
 
 ``` r
+
 t2_cross<-as.data.frame.matrix( xtabs(t2$value~t2$elabel+t2$slabel) )
 
 # calculate totals
@@ -104,6 +109,7 @@ The output of the last command is:
 In the next block of code, you can find the whole program:
 
 ``` r
+
 # load the Redatam package
 library(redatam)
 
@@ -135,6 +141,7 @@ next exmaple, we generate a 3-dimensional Redatam crosstab
 pivot-table:
 
 ``` r
+
 # Run a crosstab 'req person.sexo by person.ecivil by person.alfab'
 t3<-redatam_query(dic, "freq person.sexo by person.ecivil by person.alfab")
 
@@ -175,6 +182,7 @@ The output of the last command is:
 Next, you can generate a pivot-table using the `pivottabler` package:
 
 ``` r
+
 library(pivottabler) # for pivot tables
 
 # generate the pivot table
@@ -215,6 +223,7 @@ If you wnat to export to an EXCEL file, you can use the `openxlsx`
 package:
 
 ``` r
+
 library(openxlsx) # for writing excel files
 
 wb <- createWorkbook(creator = Sys.getenv("USERNAME"))
@@ -229,6 +238,7 @@ In the next block of code, you can find the whole program that generates
 and export a pivot table:
 
 ``` r
+
 library(redatam) # Redatam package
 library(pivottabler) # for pivot tables
 library(openxlsx) # for writing excel files

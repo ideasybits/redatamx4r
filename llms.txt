@@ -10,6 +10,7 @@ or DICX (old) format.
 To install the R package, run the following command:
 
 ``` r
+
 # Install released version from CRAN
 install.packages("redatamx")
 ```
@@ -23,6 +24,7 @@ possible to open a REDATAM dictionary (**dicx** format or the new
 For example:
 
 ``` r
+
 library(redatamx)
 
 # open a dictionary

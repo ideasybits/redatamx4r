@@ -10,7 +10,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/ideasybits/redatamx4r/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/ideasybits/redatamx4r/blob/VERSION_1.3.0/DESCRIPTION)
 
 Salvador J (2026). *redatamx: R Interface to 'Redatam' Library*. R
 package version 1.3.0, <https://ideasybits.github.io/redatamx4r/>.
